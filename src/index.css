@@ -1,0 +1,28 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.scrollable {
+    scrollbar-width: thin;
+    scrollbar-color: #e21936 #000000;
+  }
+
+.scroll-container{
+    scroll-behavior: smooth;
+}
+
+.custom-toast {
+    background-color: black;
+    color: #EDF2F4; /* text color */
+  }
+  
+  .custom-toast .Toastify__close-button {
+    color: #EDF2F4; /* color of the close button */
+  }
+  
+  .custom-toast .Toastify__progress-bar {
+    background-color: #e21936; /* color of the progress bar */
+  }
+
+
+
