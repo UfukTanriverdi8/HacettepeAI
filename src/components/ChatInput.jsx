@@ -15,12 +15,12 @@ const ChatInput = ({chatHistory, setChatHistory, language}) => {
         }
       }
       const sendPrompt = async () => {
-        console.log('Send button clicked')
+        //console.log('Send button clicked')
         if (inputValue === '') {
-            console.log("No message to send")
+            //console.log("No message to send")
             return
         }
-        console.log('Message:', inputValue)
+        //console.log('Message:', inputValue)
         
         setInputValue('')
         setLoading(true)
@@ -41,7 +41,7 @@ const ChatInput = ({chatHistory, setChatHistory, language}) => {
         ])
         
         try {
-            console.log(chatHistory)
+            //console.log(chatHistory)
             const response = await fetch(API_URL, {
                 method: 'POST',
                 headers: {
@@ -72,11 +72,11 @@ const ChatInput = ({chatHistory, setChatHistory, language}) => {
         }
     }
     const clearChat = () => {
-        console.log('Clear button clicked')
+        //console.log('Clear button clicked')
         if (confirm("Are you sure you want to clear the chat history?") == true) {
             setChatHistory([]) // Clear the chat history
         } else {
-            console.log("User cancelled the clear chat operation.")
+            //console.log("User cancelled the clear chat operation.")
             return
           }
       }
