@@ -6,7 +6,6 @@ import InfoModal from './components/InfoModal'
 import { useState, useEffect } from 'react'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
-import { Analytics } from "@vercel/analytics/react"
 
 const App =  () => {
     const [openModal, setOpenModal] = useState(false)
@@ -66,7 +65,6 @@ const App =  () => {
       
     return (
     <div className="flex flex-col h-screen bg-primary text-tertiary">
-        <Analytics />
         <Header className="fixed top-0 left-0 right-0" language={language} handleLanguageChange={handleLanguageChange}/>
         <div className="flex-grow overflow-auto scrollable max-h-full">
         <ChatConversations chatHistory={chatHistory} language={language} />
