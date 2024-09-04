@@ -19,14 +19,14 @@ const Header = ({language, handleLanguageChange}) => {
                 }`}
             ></div>
             <span 
-                className={`absolute left-1 sm:left-2 text-tertiary text-xs sm:text-sm ${
+                className={`absolute left-1 sm:left-2 text-tertiary text-sm ${
                 language === 'EN' ? 'font-bold' : 'text-opacity-50'
                 }`}
             >
                 EN
             </span>
             <span 
-                className={`absolute right-1 sm:right-2 text-tertiary text-xs sm:text-sm ${
+                className={`absolute right-1 sm:right-2 text-tertiary text-sm ${
                 language === 'TR' ? 'font-bold' : 'text-opacity-50'
                 }`}
             >
