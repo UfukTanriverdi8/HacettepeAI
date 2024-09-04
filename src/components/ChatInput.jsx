@@ -27,7 +27,7 @@ const ChatInput = ({chatHistory, setChatHistory, language}) => {
         
         setInputValue('')
         setLoading(true)
-        if(chatHistory.length >= 10){
+        if(chatHistory.length >= 30){
             let maxLimitEN = "You have reached the maximum chat history limit. Please clear the chat history to continue."
             let maxLimitTR = "Maksimum mesaj sınırına ulaştınız. Devam etmek için lütfen sohbet geçmişini temizleyin."
             alert(language === 'EN' ? maxLimitEN : maxLimitTR)
