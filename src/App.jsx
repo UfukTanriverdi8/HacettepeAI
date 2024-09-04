@@ -27,7 +27,7 @@ const App =  () => {
       }, [language])
 
     const enLangChange = "Language changed to English! Chat will be in English too!"
-    const trLangChange = "Dil Türkçeye değiştirildi! Sohbet de Türkçe olacak!"
+    const trLangChange = "Dil Türkçeye değiştirildi! Cevaplar Türkçe olacak."
     const langChangeInfoMsgEN = "Are you sure you want to change the language? This action will clear your chat history."
     const langChangeInfoMsgTR = "Dili değiştirmek istediğinizden emin misiniz? Bu eylem sohbet geçmişinizi silecek."
     const handleLanguageChange = () => {
