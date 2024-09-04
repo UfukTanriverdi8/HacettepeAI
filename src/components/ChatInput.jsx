@@ -15,6 +15,9 @@ const ChatInput = ({chatHistory, setChatHistory, language}) => {
         }
       }
       const sendPrompt = async () => {
+        if(loading){
+            return
+        }
         //console.log('Send button clicked')
         if (inputValue === '') {
             //console.log("No message to send")
@@ -24,9 +27,19 @@ const ChatInput = ({chatHistory, setChatHistory, language}) => {
         
         setInputValue('')
         setLoading(true)
+        if(chatHistory.length >= 10){
+            let maxLimitEN = "You have reached the maximum chat history limit. Please clear the chat history to continue."
+            let maxLimitTR = "Maksimum mesaj sınırına ulaştınız. Devam etmek için lütfen sohbet geçmişini temizleyin."
+            alert(language === 'EN' ? maxLimitEN : maxLimitTR)
+            setLoading(false)
+            return
+        }
         
         // Add the human message
-        setChatHistory(prevHistory => [...prevHistory, { sender: 'Human', message: inputValue }]);
+        setChatHistory(prevHistory => [...prevHistory, { sender: 'Human', message: inputValue }])
+
+        
+
         
         // Add a placeholder for the AI response
         const aiMessageId = Date.now(); // Unique ID for the placeholder
