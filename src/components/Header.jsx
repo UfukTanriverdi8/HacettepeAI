@@ -4,7 +4,7 @@ const Header = ({language, handleLanguageChange}) => {
         <div className="flex justify-between items-center py-3 border-b-2 border-secondary">
         <div className="w-1/3"></div>
         
-        <h1 className="text-center text-2xl sm:text-3xl md:text-4xl w-1/3 whitespace-nowrap font-mono">
+        <h1 className="text-center text-2xl sm:text-3xl md:text-4xl w-1/3 font-mono">
           hacettepe ai
         </h1>
         
