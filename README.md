@@ -9,14 +9,14 @@ Try it [**here**](https://hacettepe-ai.vercel.app/).
 ## Features
 
 - **Fast Responses**: Utilizes RAG technology to ensure responses are quick and based on relevant context.
-- **Accurate Information**: Powered by the Claude 3 Haiku model, responses are generated using scraped data from Hacettepe University's website.
+- **Accurate Information**: Powered by the AWS Bedrock Claude 3 Haiku model, responses are generated using scraped data from Hacettepe University's website.
 - **Language Support**: Supports English and Turkish, allowing users to switch languages seamlessly.
 - **Persistent Language Settings**: Remembers the user's language preference across sessions.
 
 ## Tech Stack
 
 - **Frontend**: React, Tailwind CSS
-- **LLM**: Claude 3 Haiku
+- **LLM**: AWS Bedrock Claude 3 Haiku
 
 ## Contact
 
