@@ -16,7 +16,7 @@ Try it [**here**](https://hacettepe-ai.vercel.app/).
 ## Tech Stack
 
 - **Frontend**: React, Tailwind CSS
-- **LLM**: AWS Bedrock Claude 3 Haiku
+- **Backend**: AWS Bedrock Claude 3 Haiku
 
 ## Contact
 
@@ -24,3 +24,9 @@ For any questions or feedback, feel free to reach out:
 
 - [**LinkedIn**](https://www.linkedin.com/in/ufuk-tanr%C4%B1verdi-91a503264/)
 - [**GitHub**](https://github.com/UfukTanriverdi8)
+
+
+# TO DO
+- [ ] claude response newlines need to be rendered
+- [ ] cors allowed origin
+- [ ] title typewriter effect
