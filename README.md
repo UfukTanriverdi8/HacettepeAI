@@ -28,5 +28,6 @@ For any questions or feedback, feel free to reach out:
 
 # TO DO
 - [ ] claude response newlines need to be rendered
+- [ ] auto scroll to bottom not working after the typewriter effect
 - [ ] cors allowed origin
 - [ ] title typewriter effect
