@@ -1,11 +1,31 @@
+import Typewriter from "typewriter-effect"
+import { useState } from "react"
+
 const Header = ({language, handleLanguageChange}) => {
+    //const [showCursor, setShowCursor] = useState(true)
+
     return (
 
         <div className="flex justify-between items-center py-3 border-b-2 border-secondary">
         <div className="w-1/3"></div>
         
         <h1 className="text-center text-2xl sm:text-3xl md:text-4xl w-1/3 font-mono">
-          hacettepe ai
+            <Typewriter
+                onInit={(typewriter) => {
+                    typewriter.typeString('hacettepe ai')
+                    .pauseFor(600)
+                    .deleteChars(2)
+                    .typeString('<strong style="color: #e21936;">ai</strong>')
+                    .pauseFor(1000)
+                    //.callFunction(() => setShowCursor(false))
+                    .start()
+                }}
+            options={{
+                delay: "natural",
+                cursor: "_",
+                //cursorClassName: `${showCursor ? 'normal_cursor' : 'hidden_cursor'}`,
+            }}
+            />
         </h1>
         
         <div className="w-1/3 flex justify-end items-center mr-3 text-base">
