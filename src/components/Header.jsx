@@ -5,7 +5,7 @@ const Header = ({language, handleLanguageChange}) => {
         <div className="w-1/3"></div>
         
         <h1 className="text-center text-2xl sm:text-3xl md:text-4xl w-1/3 font-mono">
-          hacettepe ai
+          hacettepe a
         </h1>
         
         <div className="w-1/3 flex justify-end items-center mr-3 text-base">
