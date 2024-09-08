@@ -4,6 +4,8 @@ Hacettepe AI is a dedicated AI assistant for Hacettepe University students, buil
 
 The chatbot can answer queries related to Hacettepe University by utilizing the Claude 3 Haiku model and the scraped data from the university's website. Users can ask questions in their preferred language, and the chatbot will respond accordingly.
 
+I used [Scrapy](https://scrapy.org/) to scrape the website of Hacettepe.
+
 Try it [**here**](https://hacettepe-ai.vercel.app/).
 
 ## Features
