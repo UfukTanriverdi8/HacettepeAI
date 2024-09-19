@@ -21,7 +21,7 @@ const Header = ({language, handleLanguageChange}) => {
                     .start()
                 }}
             options={{
-                delay: "300",
+                delay: "150",
                 deleteSpeed: "natural",
                 cursor: "_",
                 //cursorClassName: `${showCursor ? 'normal_cursor' : 'hidden_cursor'}`,
