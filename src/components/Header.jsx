@@ -12,11 +12,10 @@ const Header = ({language, handleLanguageChange}) => {
         <h1 className="text-center text-2xl sm:text-3xl md:text-4xl w-1/3 font-mono">
             <Typewriter
                 onInit={(typewriter) => {
-                    typewriter.typeString('hacettepe ai')
-                    .pauseFor(600)
-                    .deleteChars(2)
-                    .typeString('<strong style="color: #e21936;">ai</strong>')
-                    .pauseFor(1000)
+                    typewriter.typeString('hacettepe')
+                    .pauseFor(300)
+                    .typeString('<strong style="color: #e21936;"> ai</strong>')
+                    //.pauseFor(1000)
                     //.callFunction(() => setShowCursor(false))
                     .start()
                 }}
