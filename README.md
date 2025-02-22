@@ -4,7 +4,7 @@ Hacettepe AI is a dedicated AI assistant for Hacettepe University students, buil
 
 The chatbot can answer queries related to Hacettepe University by utilizing the Claude 3 Haiku model and the scraped data from the university's website. Users can ask questions in their preferred language, and the chatbot will respond accordingly.
 
-I used [Scrapy](https://scrapy.org/) to scrape the website of Hacettepe.
+I used [Crawl4AI](https://github.com/unclecode/crawl4ai) to scrape the website of Hacettepe.
 
 Try it [**here**](https://hacettepe-ai.vercel.app/).
 
@@ -29,7 +29,8 @@ For any questions or feedback, feel free to reach out:
 
 
 # TO DO
-- [ ] claude response newlines + markdown needs to be rendered
+- [ ] markdown and newlines need to be rendered when displaying the response
 - [ ] auto scroll to bottom not working after the typewriter effect
 - [ ] cors allowed origin
 - [X] title typewriter effect
+- [ ] feedback button
