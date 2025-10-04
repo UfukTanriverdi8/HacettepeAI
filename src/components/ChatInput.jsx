@@ -6,8 +6,9 @@ const ChatInput = ({chatHistory, setChatHistory, language}) => {
     const [inputValue, setInputValue] = useState('');
     const [loading, setLoading] = useState(false);
     // use environment variables for API key and URL
-    const API_KEY = process.env.VITE_API_KEY;
-    const API_URL = process.env.VITE_API_URL;
+    const API_KEY = import.meta.env.VITE_API_KEY;
+    const API_URL = import.meta.env.VITE_API_URL;
+    console.log("API URL:", API_URL ? "Loaded" : "Not Loaded");
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
