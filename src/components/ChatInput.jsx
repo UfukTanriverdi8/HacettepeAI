@@ -8,7 +8,7 @@ const ChatInput = ({chatHistory, setChatHistory, language}) => {
     // use environment variables for API key and URL
     const API_KEY = import.meta.env.VITE_API_KEY;
     const API_URL = import.meta.env.VITE_API_URL;
-    console.log("API URL:", API_URL ? "Loaded" : "Not Loaded");
+    console.log("API URL:", API_URL);
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
