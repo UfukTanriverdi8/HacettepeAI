@@ -6,7 +6,7 @@ The chatbot can answer queries related to Hacettepe University by utilizing the 
 
 I used [Crawl4AI](https://github.com/unclecode/crawl4ai) to scrape the website of Hacettepe.
 
-Try it [**here**](https://hacettepe-ai.vercel.app/).
+Try it [**here**](https://hacettepe-ai-hou3z.ondigitalocean.app/).
 
 ## Features
 
@@ -18,7 +18,7 @@ Try it [**here**](https://hacettepe-ai.vercel.app/).
 ## Tech Stack
 
 - **Frontend**: React, Tailwind CSS
-- **Backend**: AWS Lambda
+- **Backend**: AWS Lambda, API Gateway, Pinecone, OpenRouter
 
 ## Contact
 
@@ -28,7 +28,7 @@ For any questions or feedback, feel free to reach out:
 - [**GitHub**](https://github.com/UfukTanriverdi8)
 
 
-# TO DO
+## TO DO (I hope I'll be back :/)
 - [ ] markdown and newlines need to be rendered when displaying the response
 - [ ] auto scroll to bottom not working after the typewriter effect
 - [ ] cors allowed origin
