@@ -5,8 +5,9 @@ import { useState} from 'react';
 const ChatInput = ({chatHistory, setChatHistory, language}) => {
     const [inputValue, setInputValue] = useState('');
     const [loading, setLoading] = useState(false);
-    const API_KEY = import.meta.env.VITE_API_KEY;
-    const API_URL = import.meta.env.VITE_API_URL;
+    // use environment variables for API key and URL
+    const API_KEY = process.env.VITE_API_KEY;
+    const API_URL = process.env.VITE_API_URL;
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
