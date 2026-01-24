@@ -24,6 +24,6 @@ dist-ssr
 *.sw?
 
 bfg*
-
+password.txt
 
 .env
