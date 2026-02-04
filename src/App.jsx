@@ -16,9 +16,9 @@ const App =  () => {
     const [chatHistory, setChatHistory] = useState([])
 
     const [language, setLanguage] = useState(() => {
-        // Retrieve language from localStorage or default to 'EN'
+        // Retrieve language from localStorage or default to 'TR'
         const savedLanguage = localStorage.getItem('language')
-        return savedLanguage ? savedLanguage : 'EN'
+        return savedLanguage ? savedLanguage : 'TR'
       })
     
       useEffect(() => {

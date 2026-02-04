@@ -87,7 +87,7 @@ const ChatInput = ({chatHistory, setChatHistory, language}) => {
     }
     const clearChat = () => {
         //console.log('Clear button clicked')
-        if (confirm("Are you sure you want to clear the chat history?") == true) {
+        if (confirm("Sohbet geçmişini temizlemek istediğine emin misiniz?") == true) {
             setChatHistory([]) // Clear the chat history
         } else {
             //console.log("User cancelled the clear chat operation.")

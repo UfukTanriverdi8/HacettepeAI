@@ -5,13 +5,13 @@ const InfoModal = ({ onClose, language }) => {
     const [displayedText, setDisplayedText] = useState("") // State to hold the currently displayed text
     const infoTitleTR = "Hakkında"
     const infoTitleEN = "About"
-    const infoContentTR = 'Hacettepe AI, Hacettepe Üniversitesi öğrencileri için özel bir yapay zeka asistanıdır. Ufuk Tanrıverdi tarafından geliştirilmiştir.<br />' +
-    'Retrieval-Augmented Generation (RAG) teknolojisi ve Claude 3 Haiku modelini kullanarak hızlı ve doğru yanıtlar sağlar. ' +
+    const infoContentTR = 'Hacettepe AI, Hacettepe Üniversitesi öğrencileri için özel bir yapay zeka asistanıdır.<br />' +
+    'Retrieval-Augmented Generation (RAG) mimarisini ve Gemini modelini kullanarak hızlı ve doğru yanıtlar sağlar. ' +
     'Üniversitenin web sitesinden alınan verilerle geliştirilen bu uygulama hızlıca üniversite ile alakalı soruları cevaplayabilir.<br />' +
     'Daha fazlası için LinkedIn ve GitHub üzerinden benimle bağlantı kurabilirsiniz.<br />' +
     'Hacettepe AI’yi kullandığınız için teşekkür ederiz!'
-    const infoContentEN = 'Hacettepe AI is a dedicated AI assistant for Hacettepe University students. It is developed by Ufuk Tanrıverdi.<br />' +
-    'It leverages Retrieval-Augmented Generation (RAG) technology and the Claude 3 Haiku model to deliver fast and accurate responses. ' +
+    const infoContentEN = 'Hacettepe AI is a dedicated AI assistant for Hacettepe University students.<br />' +
+    'It leverages Retrieval-Augmented Generation (RAG) architecture and the Gemini model to deliver fast and accurate responses. ' +
     'Developed using scraped data from the university’s website, it ensures reliable information at your fingertips. <br /> ' +
     'For more updates, connect with me on LinkedIn and GitHub. If you have any questions or feedback, feel free to reach out.<br />' +
     'Thank you for using Hacettepe AI!'

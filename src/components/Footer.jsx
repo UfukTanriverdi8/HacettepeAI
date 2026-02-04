@@ -8,7 +8,7 @@ const Footer = ({ onInfoClick }) => {
     </button>
     
     <div className="mr-5 text-base">
-      Developed by Ufuk Tanrıverdi
+      Hacettepe AI © 2026 
     </div>
     <div className="mr-5 text-2xl transition-all duration-300 hover:text-[#9ca3af]">
       <a
