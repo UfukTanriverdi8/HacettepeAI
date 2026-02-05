@@ -2,12 +2,14 @@ import { FaArrowUp, FaTrashCan } from "react-icons/fa6";
 import { useState} from 'react';
 
 
-const ChatInput = ({chatHistory, setChatHistory, language}) => {
+const ChatInput = ({chatHistory, setChatHistory, language, apiVersion}) => {
     const [inputValue, setInputValue] = useState('');
     const [loading, setLoading] = useState(false);
     // use environment variables for API key and URL
     const API_KEY = import.meta.env.VITE_API_KEY;
     const API_URL = import.meta.env.VITE_API_URL;
+    const V2_API_URL = import.meta.env.VITE_V2_API_URL;
+    const V2_API_KEY = import.meta.env.VITE_V2_API_KEY;
 
     const handleKeyDown = (e) => {
         if (e.key === 'Enter') {
@@ -56,14 +58,29 @@ const ChatInput = ({chatHistory, setChatHistory, language}) => {
         
         try {
             //console.log(chatHistory)
-            const response = await fetch(API_URL, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'x-api-key': API_KEY
-                },
-                body: JSON.stringify({ "query": inputValue, "college_name": "hacettepe", "lang": language, "context": chatHistory  })
-            });
+            
+            let response;
+            if (apiVersion === 'v2') {
+                // V2 API: Send only the prompt, no chat history, no API key
+                response = await fetch(V2_API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        
+                    },
+                    body: JSON.stringify({ "prompt": inputValue })
+                });
+            } else {
+                // V1 API: Original logic with chat history and API key
+                response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'x-api-key': API_KEY
+                    },
+                    body: JSON.stringify({ "query": inputValue, "college_name": "hacettepe", "lang": language, "context": chatHistory  })
+                });
+            }
             
             if (!response.ok) {
                 alert("We're sorry, but something went wrong. Please try again later.");
@@ -73,9 +90,12 @@ const ChatInput = ({chatHistory, setChatHistory, language}) => {
             const data = await response.json()
     
             // Update the placeholder with the actual response
+            // Handle different response formats for v1 and v2
+            const responseText = apiVersion === 'v2' ? data.response : data.response.output.text;
+            
             setChatHistory(prevHistory => prevHistory.map(message =>
                 message.id === aiMessageId
-                    ? { ...message, message: data.response.output.text, isPlaceholder: false }
+                    ? { ...message, message: responseText, isPlaceholder: false }
                     : message
             ));
             
