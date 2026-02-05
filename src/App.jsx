@@ -13,7 +13,21 @@ const App =  () => {
         setOpenModal(!openModal)  // Toggle the modal's open state
     };
 
-    const [chatHistory, setChatHistory] = useState([])
+    const [chatHistory, setChatHistory] = useState(() => {
+        // Retrieve chat history from localStorage or default to []
+        const savedChatHistory = localStorage.getItem('chatHistory')
+        if (savedChatHistory) {
+            const parsed = JSON.parse(savedChatHistory)
+            // Mark all loaded messages to skip typewriter effect
+            return parsed.map(msg => ({ ...msg, skipTypewriter: true }))
+        }
+        return []
+    })
+    
+    useEffect(() => {
+        // Store chat history in localStorage when it changes
+        localStorage.setItem('chatHistory', JSON.stringify(chatHistory))
+    }, [chatHistory])
 
     const [language, setLanguage] = useState(() => {
         // Retrieve language from localStorage or default to 'TR'
@@ -40,6 +54,9 @@ const App =  () => {
     const handleApiVersionChange = () => {
         const newVersion = apiVersion === 'v1' ? 'v2' : 'v1'
         setApiVersion(newVersion)
+        
+        // Clear session_id when switching API versions
+        localStorage.removeItem('v2_session_id')
         
         toast.dismiss()
         toast.success(`API version changed to ${newVersion.toUpperCase()}!`, {
@@ -74,6 +91,7 @@ const App =  () => {
 
       const changeLanguage = () => {
         setChatHistory([]) // Clear the chat history
+        localStorage.removeItem('v2_session_id') // Clear session_id
         const newLang = language === 'EN' ? 'TR' : 'EN'
             setLanguage(newLang)
     

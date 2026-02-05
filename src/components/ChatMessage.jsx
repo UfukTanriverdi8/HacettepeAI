@@ -5,12 +5,12 @@ import ReactMarkdown from 'react-markdown'
 import remarkGfm from 'remark-gfm'
 
 
-const ChatMessage = ({ sender, message, isPlaceholder }) => {
+const ChatMessage = ({ sender, message, isPlaceholder, skipTypewriter }) => {
     const [displayedMsg, setDisplayedMsg] = useState("")
     const [isTypingComplete, setIsTypingComplete] = useState(false)
     
     useEffect(() => {
-        if(sender==="AI"){
+        if(sender==="AI" && !skipTypewriter){
             setDisplayedMsg("")
             setIsTypingComplete(false)
             let currentIndex = -1

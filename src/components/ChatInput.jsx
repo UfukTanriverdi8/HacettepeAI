@@ -5,6 +5,11 @@ import { useState} from 'react';
 const ChatInput = ({chatHistory, setChatHistory, language, apiVersion}) => {
     const [inputValue, setInputValue] = useState('');
     const [loading, setLoading] = useState(false);
+    const [sessionId, setSessionId] = useState(() => {
+        // Retrieve session_id from localStorage or default to null
+        const savedSessionId = localStorage.getItem('v2_session_id');
+        return savedSessionId ? savedSessionId : null;
+    });
     // use environment variables for API key and URL
     const API_KEY = import.meta.env.VITE_API_KEY;
     const API_URL = import.meta.env.VITE_API_URL;
@@ -40,9 +45,6 @@ const ChatInput = ({chatHistory, setChatHistory, language, apiVersion}) => {
         
         // Add the human message
         setChatHistory(prevHistory => [...prevHistory, { sender: 'Human', message: inputValue }])
-
-        
-
         
         // Add a placeholder for the AI response
         const aiMessageId = Date.now(); // Unique ID for the placeholder
@@ -61,14 +63,29 @@ const ChatInput = ({chatHistory, setChatHistory, language, apiVersion}) => {
             
             let response;
             if (apiVersion === 'v2') {
-                // V2 API: Send only the prompt, no chat history, no API key
+                // V2 API: Send prompt with session_id for memory
+                if (sessionId) {
+                    console.log('Using existing session_id:', sessionId);
+                } else {
+                    console.log('No session_id found. A new session will be created.');
+                }
+                
+                // Build request body - only include session_id if it exists
+                const requestBody = { prompt: inputValue };
+                if (sessionId) {
+                    requestBody.session_id = sessionId;
+                }
+                
+                console.log('V2 API Request body:', requestBody);
+                
                 response = await fetch(V2_API_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
+                        'x-api-key': V2_API_KEY,
                         
                     },
-                    body: JSON.stringify({ "prompt": inputValue })
+                    body: JSON.stringify(requestBody)
                 });
             } else {
                 // V1 API: Original logic with chat history and API key
@@ -93,6 +110,12 @@ const ChatInput = ({chatHistory, setChatHistory, language, apiVersion}) => {
             // Handle different response formats for v1 and v2
             const responseText = apiVersion === 'v2' ? data.response : data.response.output.text;
             
+            // Save session_id for v2 API
+            if (apiVersion === 'v2' && data.session_id) {
+                setSessionId(data.session_id);
+                localStorage.setItem('v2_session_id', data.session_id);
+            }
+            
             setChatHistory(prevHistory => prevHistory.map(message =>
                 message.id === aiMessageId
                     ? { ...message, message: responseText, isPlaceholder: false }
@@ -109,6 +132,9 @@ const ChatInput = ({chatHistory, setChatHistory, language, apiVersion}) => {
         //console.log('Clear button clicked')
         if (confirm("Sohbet geçmişini temizlemek istediğine emin misiniz?") == true) {
             setChatHistory([]) // Clear the chat history
+            // Clear session_id for v2 API to start a new session
+            setSessionId(null);
+            localStorage.removeItem('v2_session_id');
         } else {
             //console.log("User cancelled the clear chat operation.")
             return

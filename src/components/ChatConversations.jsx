@@ -16,9 +16,9 @@ const ChatConversations = ({ chatHistory, language }) => {
   return (
     
     <div ref={chatContainerRef} className='flex flex-col items-center p-4 overflow-y-auto h-full scroll-container'>
-        <ChatMessage sender='AI' message={greetingMsg} isPlaceholder={false} />
+        <ChatMessage sender='AI' message={greetingMsg} isPlaceholder={false} skipTypewriter={true} />
       {chatHistory.map((chat, index) => (
-        <ChatMessage key={index} sender={chat.sender} message={chat.message} isPlaceholder={chat.isPlaceholder}/>
+        <ChatMessage key={index} sender={chat.sender} message={chat.message} isPlaceholder={chat.isPlaceholder} skipTypewriter={chat.skipTypewriter}/>
       ))}
     </div>
   );
