@@ -23,7 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-bfg*
+*.jar
 password.txt
 
 .env
