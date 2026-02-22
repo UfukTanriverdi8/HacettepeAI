@@ -118,7 +118,7 @@ const ChatInput = ({chatHistory, setChatHistory, language, apiVersion}) => {
             
             setChatHistory(prevHistory => prevHistory.map(message =>
                 message.id === aiMessageId
-                    ? { ...message, message: responseText, isPlaceholder: false }
+                    ? { ...message, message: responseText, isPlaceholder: false, skipTypewriter: true, timestamp: apiVersion === 'v2' ? data.timestamp : undefined }
                     : message
             ));
             

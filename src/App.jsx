@@ -113,7 +113,7 @@ const App =  () => {
     <div className="flex flex-col h-screen bg-primary text-tertiary">
         <Header className="fixed top-0 left-0 right-0" language={language} handleLanguageChange={handleLanguageChange} apiVersion={apiVersion} handleApiVersionChange={handleApiVersionChange}/>
         <div className="flex-grow overflow-auto scrollable max-h-full">
-        <ChatConversations chatHistory={chatHistory} language={language} />
+        <ChatConversations chatHistory={chatHistory} language={language} apiVersion={apiVersion} />
         </div>
         <ChatInput className="fixed" language={language} chatHistory={chatHistory} setChatHistory={setChatHistory} apiVersion={apiVersion} />
         {openModal && <InfoModal language={language} onClose={toggleModal} />}
