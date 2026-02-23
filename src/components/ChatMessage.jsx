@@ -101,7 +101,7 @@ const ChatMessage = ({ sender, message, isPlaceholder, skipTypewriter, timestamp
             <div className="flex flex-col flex-1">
                 {sender === 'AI' ? (
                     isPlaceholder ? (
-                        <p className="text-[#9ca3af] italic">{displayedMsg}</p>
+                        <p className="text-[#9ca3af]">{displayedMsg}</p>
                     ) : (
                         <div className="prose prose-invert max-w-none">
                             <ReactMarkdown remarkPlugins={[remarkGfm]}>
